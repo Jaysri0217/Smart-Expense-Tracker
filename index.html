@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= HEADER ================= -->
+
+        <header>
+
+            <div>
+                <h1>💰 Smart Expense Tracker</h1>
+
+                <p>
+                    Track your spending. Control your budget.
+                </p>
+            </div>
+
+
+            <button id="themeBtn" class="theme-btn">
+                🌙
+            </button>
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h3>Total Expense</h3>
+
+                    <p id="totalExpense">
+                        ₹0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🧾
+                </div>
+
+                <div>
+
+                    <h3>Transactions</h3>
+
+                    <p id="transactionCount">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📈
+                </div>
+
+                <div>
+
+                    <h3>Highest Expense</h3>
+
+                    <p id="highestExpense">
+                        ₹0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📊
+                </div>
+
+                <div>
+
+                    <h3>Average Expense</h3>
+
+                    <p id="averageExpense">
+                        ₹0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= BUDGET ================= -->
+
+        <section class="budget-section">
+
+            <div class="budget-header">
+
+                <div>
+
+                    <h2>💳 Monthly Budget</h2>
+
+                    <p>
+                        Set a limit for your spending
+                    </p>
+
+                </div>
+
+
+                <div class="budget-input">
+
+                    <input
+                        type="number"
+                        id="budgetInput"
+                        placeholder="Enter budget"
+                        min="1"
+                    >
+
+                    <button id="budgetBtn">
+                        Set Budget
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="budget-info">
+
+                <div>
+
+                    <span>
+                        Budget
+                    </span>
+
+                    <strong id="budgetAmount">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Spent
+                    </span>
+
+                    <strong id="budgetSpent">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Remaining
+                    </span>
+
+                    <strong id="budgetRemaining">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="progress-container">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+
+            <p
+                id="budgetMessage"
+                class="budget-message">
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= ADD EXPENSE ================= -->
+
+        <section class="form-section">
+
+            <h2>➕ Add New Expense</h2>
+
+
+            <form id="expenseForm">
+
+
+                <div class="input-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="e.g. Grocery"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="₹ Amount"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select
+                        id="category"
+                        required
+                    >
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Food">
+                            🍔 Food
+                        </option>
+
+                        <option value="Travel">
+                            🚗 Travel
+                        </option>
+
+                        <option value="Shopping">
+                            🛍️ Shopping
+                        </option>
+
+                        <option value="Education">
+                            📚 Education
+                        </option>
+
+                        <option value="Bills">
+                            💡 Bills
+                        </option>
+
+                        <option value="Others">
+                            📦 Others
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="add-btn">
+
+                    Add Expense
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- ================= EXPENSE HISTORY ================= -->
+
+        <section class="expense-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>📋 Expense History</h2>
+
+                    <p>
+                        Search and manage your transactions
+                    </p>
+
+                </div>
+
+
+                <div class="filters">
+
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="🔍 Search..."
+                    >
+
+
+                    <select id="filterCategory">
+
+                        <option value="All">
+                            All Categories
+                        </option>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Travel">
+                            Travel
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Education">
+                            Education
+                        </option>
+
+                        <option value="Bills">
+                            Bills
+                        </option>
+
+                        <option value="Others">
+                            Others
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div id="expenseList">
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div
+        id="toast"
+        class="toast">
+
+        Expense added successfully! ✓
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
